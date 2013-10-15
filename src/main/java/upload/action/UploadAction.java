@@ -96,9 +96,9 @@ public class UploadAction extends HttpServlet {
         }
          
         if(this.chunk == this.chunks - 1){
-            System.out.println("用户："+this.user);
-            System.out.println("文件名称："+this.name);
-            System.out.println("上传时间："+this.time);
+            System.out.println("user："+this.user);
+            System.out.println("filename："+this.name);
+            System.out.println("uploadtime："+this.time);
         }
  
         resp.setContentType(JSON);
