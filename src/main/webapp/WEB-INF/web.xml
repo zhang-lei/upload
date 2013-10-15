@@ -7,4 +7,14 @@
   <welcome-file-list>
   	<welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>uploadAction</servlet-name>
+  	<servlet-class>upload.action.UploadAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>uploadAction</servlet-name>
+  	<url-pattern>/upload.do</url-pattern>
+  </servlet-mapping>
 </web-app>

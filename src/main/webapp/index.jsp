@@ -1,87 +1,21 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-
-<title>Plupload - Custom example</title>
-
-<!-- production -->
-<script type="text/javascript" src="plupload/js/plupload.full.min.js"></script>
-
-
-<!-- debug 
-<script type="text/javascript" src="plupload/js/moxie.js"></script>
-<script type="text/javascript" src="plupload/js/plupload.dev.js"></script>
--->
-
-</head>
-<body style="font: 13px Verdana; background: #eee; color: #333">
-
-<h1>Custom example</h1>
-
-<p>Shows you how to use the core plupload API.</p>
-
-<div id="filelist">Your browser doesn't have Flash, Silverlight or HTML5 support.</div>
-<br />
-
-<div id="container">
-    <a id="pickfiles" href="javascript:;">[Select files]</a> 
-    <a id="uploadfiles" href="javascript:;">[Upload files]</a>
-</div>
-
-<br />
-<pre id="console"></pre>
-
-
-<script type="text/javascript">
-// Custom example logic
-
-var uploader = new plupload.Uploader({
-	runtimes : 'html5,flash,silverlight,html4',
-	browse_button : 'pickfiles', // you can pass in id...
-	container: document.getElementById('container'), // ... or DOM Element itself
-	url : 'upload.php',
-	flash_swf_url : 'plupload/js/Moxie.swf',
-	silverlight_xap_url : 'plupload/js/Moxie.xap',
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>文件上传(ftp)测试</title>
 	
-	filters : {
-		max_file_size : '10mb',
-		mime_types: [
-			{title : "Image files", extensions : "jpg,gif,png"},
-			{title : "Video files", extensions : "ts,rmvb,mpg"},
-			{title : "Audio files", extensions : "mp3"},
-			{title : "Zip files", extensions : "zip"}
-		]
-	},
-
-	init: {
-		PostInit: function() {
-			document.getElementById('filelist').innerHTML = '';
-
-			document.getElementById('uploadfiles').onclick = function() {
-				uploader.start();
-				return false;
-			};
-		},
-
-		FilesAdded: function(up, files) {
-			plupload.each(files, function(file) {
-				document.getElementById('filelist').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
-			});
-		},
-
-		UploadProgress: function(up, file) {
-			document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
-		},
-
-		Error: function(up, err) {
-			document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
-		}
-	}
-});
-
-uploader.init();
-
-</script>
+	<meta http-equiv="refresh" content="3;url=upload.jsp"> 
+	
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	
+</head>
+<body>
+	
+	<div id="loadView" style="width:800px; text-align:center; margin:0 auto">
+		loading...
+	</div>
+	
 </body>
 </html>
+
